@@ -1,0 +1,915 @@
+\documentclass{article}
+
+\usepackage{ctex, tabularray, fancyvrb, beramono, booktabs, array, geometry, float}
+
+
+\title{关于Python的注意事项}
+\author{X}
+
+\makeatletter % 允许修改带@的内部命令
+\renewcommand{\verbatim@font}{\normalfont} % 将verbatim字体设为正文默认字体
+\makeatother % 恢复默认
+
+
+\begin{document}
+\maketitle
+
+\section{转义字符}
+  \begin{table}[H]
+    \centering
+    \caption{Python转义字符示例}
+    \begin{tblr}
+    {
+      vline{2} = {-}{},
+      hline{1,5} = {-}{},
+      hline{2} = {-}{0.05em},
+    }
+      符号                               & 说明                  \\
+      \textbackslash{}\textbackslash{} & 反斜杠\textbackslash{} \\
+      \textbackslash{}'                & 单引号'                \\
+      \textbackslash{}"                & 双引号"                
+    \end{tblr}
+  \end{table}
+
+\section{原始字符串}
+  利用r``text"可以使后文以文本直接显示，不进行转义操作
+
+\section{print操作内部换行}
+  使用\verb|\n|再加上\verb|\|换行，如果你嫌同一行太长，也可以使用\verb|\|将同一行的字隔断，隔断后，下一行打印时自动接在上一行
+
+\section{长字符}
+  利用\verb|```text'''或"""text"""|显示长字符串，长字符串段内换行有效且不会报错，转义会正常进行
+
+\section{算符顺序}
+  \begin{table}[H]
+    \centering
+    \caption{运算符优先级从低（1）到高（17）}
+    \begin{tabular}{p{1.3cm}p{3cm}p{8.2cm}}
+      \toprule
+      优先级 & 运算符 & 描述 \\
+      \midrule
+      1 & lambda & Lambda表达式 \\
+      2 & if - else & 条件表达式 \\
+      3 & or & 布尔“或” \\
+      4 & and & 布尔“与” \\
+      5 & not x & 布尔“非” \\
+      6 & in, not in, is, is not, $<$, $\leq$, $>$, $\geq$, $\neq$, $=$ & 成员测试，同一性测试，比较 \\
+      7 & | & 按位或 \\
+      8 & $\wedge$ & 按位异或 \\
+      9 & $\&$ & 按位与 \\
+      10 & $\ll$, $\gg$ & 移位 \\
+      11 & +, - & 加法，减法 \\
+      12 & *, @, /, //, $\%$ & 乘法，矩阵乘法，除法，地板除，取余数 \\
+      13 & +x, -x, $\sim$x & 正号，负号，按位翻转 \\
+      14 & ** & 指数 \\
+      15 & await x & Await表达式 \\
+      16 & x[index], x[index:index], x(arguments...), x.attribute & 下标，切片，函数调用，属性引用 \\
+      17 & (expressions...), [expressions...], \{key:value...\}, \{expressions...\} & 绑定或元组显示，列表显示，字典显示，集合显示 \\
+      \bottomrule
+    \end{tabular}
+  \end{table}
+
+\section{符号}
+  \verb|<=|号中\verb|<号和=号|必须挨在一起
+
+\section{while循环语句}
+  break操作\footnote{break操作会结束离它最近的循环}可以直接结束while循环，或者while循环未达条件时也会自动退出
+
+\section{浮点数}
+  \subsection{浮点数的精确计算}
+    利用decimal模块可以使浮点数精确，操作如下：
+    \begin{verbatim}
+      import decimal
+      x = decimal.Decimal(`欲输入的数字')
+    \end{verbatim}\par
+    之后以此类推，将所有浮点数这样表示即可进行精确运算\par
+  \subsection{浮点数的科学表示}
+    使用aEb表示$a \cdot 10^b$
+  
+\section{虚数}
+  用x = a + bj来表示，以浮点数形式储存，x.real表示实部，x.imag表示虚部
+
+\section{运算}
+  \begin{table}[H]
+    \centering
+    \caption{python运算操作示例}
+    \begin{tblr}
+      {
+        vline{2} = {1-10}{},
+        hline{1,11} = {-}{0.08em},
+        hline{2} = {-}{0.05em},
+      }
+      操作              & 结果                   \\
+      x \% y          & 取余                   \\
+      x // y          & 向下取整                 \\
+      abs(x)          & 绝对值或复数的模                  \\
+      int(x)          & 将x转换为整数              \\
+      float(x)        & 将x转换为浮点数             \\
+      complex(re, im) & 返回一个复数，re是其实部，im是其虚部 \\
+      c.conjugate()   & 返回c的共轭复数             \\
+      divmod(x, y)    & 返回x除以y的整除结果以及余数      \\
+      pow(x, y)或x** y & x的y次方                 
+    \end{tblr}
+  \end{table}\par
+  注意：以上类型可以对字符串进行操作，但是字符串表示一个复数时，中间不能有空格，否则会报错
+
+\section{bool类型}
+  \subsection{输出为False的内容}
+    False\footnote{False类型输出值可能为下文所述的False，None，各种0，空阔号（），空字符串、序列或集合，但值都为0}，None，值等于0的数字，空序列及集合
+  \subsection{not逻辑运算符}
+    not逻辑运算符会输出与not后内容相反的bool类型的值
+
+\section{短路逻辑，针对and和or算符}
+  \subsection{and}
+    and运算符打印最前面的能决定bool类型Ture或False的变量\par
+    例：bool类型为True，打印最后一个变量；bool类型为False，打印False
+  \subsection{or}
+    or运算符打印第一个非False类型的变量，若全为False则打印False
+
+\section{分支结构(三元运算符)}
+  形如以下的分支：
+  \begin{verbatim}
+    变量 = 值1 if 条件 else 值2
+  \end{verbatim}\par
+  即为三元运算符。\par 注意值1与值2可以是任意可行的变量类型，可以理解为=号后是一个整体，先进行这个整体的判断，得到结果（值1或值2），再将结果赋值给变量。
+
+\section{input语句注意事项}
+  input(``text")语句输入的内容默认是字符串，要进行运算，必须先转换为int，float等数字类型
+
+\section{换行}
+  \subsection{默认换行}
+    输出换行符为\verb|（\n）|，print函数会在输出末尾自动添加\verb|（\n）|，导致后续输出换行，另外print()操作可以理解为不输入任何内容的换行操作
+  \subsection{修改换行命令}
+    通过\verb|end|参数修改结尾字符（默认值为\verb|``\n"|），实现自定义分隔或不换行，比如：
+    \begin{verbatim}
+      print(`text', end = `')
+    \end{verbatim}
+    实现不换行的命令；或者
+    \begin{verbatim}
+      print(`text', end = `1')
+    \end{verbatim}
+    使得在每一个输出后添一个1，但不进行换行操作；又或者
+    \begin{verbatim}
+      print(`text', end = `1 \n')
+    \end{verbatim}
+    使得在每一个输出后添一个1，并进行换行操作
+
+\section{range生成序列}
+  注意range是左包含右不包含的，且输出为int类型，有以下三种类型：
+  \begin{table}[H]
+    \centering
+    \caption{range操作}
+    \begin{tblr}{
+        vline{2} = {-}{},
+        hline{1,5} = {-}{0.08em},
+        hline{2} = {-}{0.05em},
+      }
+      写法           & 意义            \\
+      range(a)     & {[}0,a)间隔1取一个 \\
+      range(a,b)   & {[}a,b)间隔1取一个 \\
+      range(a,b,x) & {[}a,b)间隔x取一个 
+    \end{tblr}
+  \end{table}\par
+  需要注意的是：a，b，x必须为int类型
+
+\section{循环中的else}
+  值得注意的是，这里面的else是与for或while并列，只有在循环正常结束（没有break打断）时执行（从某种意义上讲，else中的语句在循环寿终正寝，不被打断才执行）
+  \subsection{for-else循环}
+    语法结构及意义如下：
+    \begin{verbatim}
+      for 变量 in 可迭代对象:    # 循环体（处理每个元素）
+        if 条件:
+          statement
+          break    # 打断循环（此时else不执行）
+      else:
+        statement    # 循环正常结束（无break）时执行
+    \end{verbatim}
+  \subsection{while-else循环}
+    语法结构及意义如下：
+    \begin{verbatim}
+      while 条件:    # 循环体
+        if 条件:
+          statement
+          break    # 打断循环（此时else不执行）
+      else:
+        statement    # 循环条件不成立（无break）时执行
+    \end{verbatim}
+
+\section{列表}
+  \subsection{列表的构建以及元素的获取}
+    \subsubsection{单个元素}
+      我们构建如下列表：
+      \begin{verbatim}
+        list = [element_0， element_1， element_2， ……，element_n-1]
+      \end{verbatim}\par
+      当提取该序列（列表）的某个元素时，我们用
+      \begin{verbatim}
+        list[x]
+      \end{verbatim}\par
+      来提取序列的第x+1个元素\footnote{类似的，所有可迭代序列都可以用这种方法得到序列中特定的元素}（即list中的\verb|element_x|），需要注意的是，list中的序列从\verb|element_0|开始，而不是\verb|element_1|
+    \subsubsection{元素位置的获取}
+      我们用
+      \begin{verbatim}
+        list.index(element, start, end)
+      \end{verbatim}\par
+      来获得从start到end的第一个element元素的下标索引
+    \subsubsection{切片}
+      我们可以用
+      \begin{verbatim}
+        list[x: y: a]
+      \end{verbatim}\par
+      来获取list中从第x+1个元素（包含）到第y+1个元素（不包含）每a个元素取一个所构成的子序列（又名``切片"）\par
+      需要注意的是：\par
+      1.x的默认值为0，y的默认值为序列的元素数，a的默认值为1，最后的:a可以不写\par
+      2.若a, x, y同为负数就按照相应的规则倒序获取即可
+    \subsubsection{列表修改1——增}
+      我们用
+      \begin{verbatim}
+        list.append(element)
+      \end{verbatim}\par
+      在列表末尾添加一个元素\footnote{注意这里仅能添加一个元素}；或者用
+      \begin{verbatim}
+        list.extend(iterable)
+      \end{verbatim}\par
+      在列表末尾添加一组可迭代对象\footnote{iterable的意思是可迭代对象，例如数组，列表，字符串等}；也可以用
+      \begin{verbatim}
+        list.insert(location, element)
+      \end{verbatim}\par
+      来对某个位置插入一个元素
+    \subsubsection{列表修改2——删}
+      我们用
+      \begin{verbatim}
+        list.remove(element)
+      \end{verbatim}\par
+      来删除某个元素（element），注意，这里只会删除列表中的第一个element元素；或者用
+      \begin{verbatim}
+        list.pop(number)
+      \end{verbatim}\par
+      来删除序号为number的元素；也可以用
+      \begin{verbatim}
+        list.clear()
+      \end{verbatim}\par
+      来直接清空list列表
+    \subsubsection{列表修改3——改}
+      我们用
+      \begin{verbatim}
+        list[start: end: step] = iterable
+      \end{verbatim}\par
+      修改列表元素，注意这里的替换包含了start，不包含end，当$start = end$时，相当于在start位置前添加可迭代对象（也可以理解为对list的切片进行赋值），或者用
+      \begin{verbatim}
+        list[number] = element
+      \end{verbatim}\par
+      来将list中下标为number的元素更改为元素element，结合上方index指令的内容，我们可以用
+      \begin{verbatim}
+        list[list.index(element)] = element*
+      \end{verbatim}\par
+      将第一个element元素换成element*元素
+
+  \subsection{列表的``运算''}
+    \subsubsection{``加法''}
+      ``加法''操作：
+      \begin{verbatim}
+        list1 + list2
+      \end{verbatim}\par
+      将list2的序列接到list1后，形成新列表
+
+    \subsubsection{``乘法''}
+      ``乘法'操作'：
+      \begin{verbatim}
+        list * number
+      \end{verbatim}\par
+      是将list中元素重复number次，形成新列表
+  
+    \subsubsection{拷贝}
+      我们用（浅拷贝）
+      \begin{verbatim}
+        list1 = list.copy()
+      \end{verbatim}\par
+      或者
+      \begin{verbatim}
+        list1 = list[:]
+      \end{verbatim}\par
+      又或者
+      \begin{verbatim}
+        import copy
+
+        list = [……]
+        list1 = copy.copy(list)
+      \end{verbatim}
+      来实现对整个列表外围对象的拷贝（外围内存位置改变，但是内层如果有嵌套对象，内层列表的对象会指向相同的内存位置）\footnote{使用$list1 = list$只实现了对内存位置的拷贝}\par
+      如果要实现对列表完全的拷贝（修改原对象不会对之后的列表造成影响），我们可以用copy模块的deepcopy函数，操作如下：
+      \begin{verbatim}
+        import copy
+
+        matrix = [……]
+        matrix1 = copy.deepcopy(matrix)
+      \end{verbatim}
+
+    \subsubsection{列表推导式}
+      基本语法为：
+      \begin{verbatim}
+        list = [expression for target in  if condition]
+      \end{verbatim}\par
+      将其转换为for循环语句为：
+      \begin{verbatim}
+        list = []
+        for target in :
+          if condition:
+            list.append(expression)
+      \end{verbatim}
+      当然，如果是直接将原列表改为列表推导式的列表，那就需要将原列表再赋值为list；我们可以表示嵌套的列表推导式如下：
+      \begin{verbatim}
+        list = [expression for target1 in iterable1 if condition1
+                           for target2 in iterable2 if condition2
+                           ...
+                           for targetN in iterableN if conditionN]
+      \end{verbatim}\par
+      用for循环语句来解释就是：
+      \begin{verbatim}
+        list = []
+        for target1 in iterable1:
+          if condition1:
+            for target2 in iterable2:
+              if condition2:
+                ...
+                  for targetN in iterableN:
+                    if conditionN:
+                      list.append(expression)
+      \end{verbatim}
+
+  \subsection{嵌套列表}
+    \subsubsection{嵌套列表的构建}
+      以如下方式构建一个嵌套列表：
+      \begin{verbatim}
+        matrix = [[0, 0, 0], [0, 0, 0], [0, 0, 0]]
+      \end{verbatim}\par
+      当然，也可以写作：
+      \begin{verbatim}
+        matrix = [[0, 0, 0],
+                  [0, 0, 0],
+                  [0, 0, 0]]
+      \end{verbatim}\par
+      或者，我们用
+      \begin{verbatim}
+        A = [0] * 3 
+
+        for i in range(3):
+          A[i] = [0, 0, 0]
+      \end{verbatim}\par
+      来构建一个初始列表
+    \subsubsection{嵌套列表的读取}
+      我们用：
+      \begin{verbatim}
+        for i in matrix:
+          for each in i:
+            print(each)
+      \end{verbatim}\par
+      来读取列表中的所有元素，或者用
+      \begin{verbatim}
+        matrix[i]
+      \end{verbatim}\par
+      来读取第i+1行的列表，或者用
+      \begin{verbatim}
+        matrix[i][j]
+      \end{verbatim}\par
+      来读取第i+1行第j+1列的元素
+
+  \subsection{其他注意}
+    \subsubsection{列表长度的获取}
+      利用\verb|len(list)|函数可以得到列表长度
+    \subsubsection{倒数元素的获取}
+      可以用
+      \begin{verbatim}
+        list[-x]
+      \end{verbatim}\par
+      来得到列表的倒数第x个元素
+    \subsubsection{列表元素的排序与转置}
+      使用
+      \begin{verbatim}
+        list.sort()
+      \end{verbatim}\par
+      指令使列表数字从小到大排序，同时，
+      \begin{verbatim}
+        list.reverse()
+      \end{verbatim}\par
+      可以使列表转置，两者结合，可以写作：
+      \begin{verbatim}
+        list.sort(reverse = True)
+      \end{verbatim}\par
+      不难看出，sort操作中reverse指令默认为False
+    
+\section{元组}
+  元组\footnote{注意，一元元组必须表示成tuple = （elementsingle，），否则会被认成数字或字符串}表示为：
+  \begin{verbatim}
+    tuple = (element_0， element_1， element_2， ……，element_n)
+  \end{verbatim}\par
+  除了不能修改外，其他诸如查找、切片功能都可以使用\footnote{需要注意的是，列表推导式是坚决不能用来生成元组的，不然为什么叫``列表''推导式呢}\footnote{另外还要注意的是，元组只是不能修改其指向的内存位置，但如果其指向的内存改变了，元组也实际上发生了一定的改变}
+
+\section{获取字符的Unicode编码}
+  使用ord(某单个字符)来获得该字符的Unicode编码
+
+\section{序列类型的解包}
+  我们可以这样操作\footnote{注意这里iterable是n元的}：
+  \begin{verbatim}
+    x_0, x_1, ..., x_n-1 = iterable
+  \end{verbatim}\par
+  来让\verb|x_0到x_n-1|分别对应iterable中的n个元素\footnote{若iterable的元素大于n个，我们可以在\texttt{x\_n-1}左上角加上\texttt{*}号，形如：\texttt{*x\_n-1}，来表示后面所有元素组成的一个列表}
+
+\section{保留标识符}
+  保留标识符（关键字） 是语言预先定义的具有特殊含义的单词，不能用作变量名、函数名或其他标识符，比如：if, and, for\dots ，可以使用keyword模块的iskeyword函数来判断，操作如下：
+  \begin{verbatim}
+    import keyword
+
+    keyword.iskeyword(str)
+  \end{verbatim}
+
+\section{字符串}
+  \subsection{换大小写字母}
+    \begin{table}[H]
+      \centering
+      \caption{字符串大小写转换操作及功能}
+      \begin{tabular}{@{}>{\ttfamily}l>{\raggedright\arraybackslash}p{10cm}@{}}
+        \toprule
+        \textrm{\textbf{操作}} & \textbf{功能描述} \\
+
+        capitalize() & 将字符串的首字母大写，其余字母小写 \\
+        casefold()   & 将字符串转换为小写形式（支持特殊字符转换和多语言场景） \\
+        title()      & 将字符串中每个单词的首字母大写 \\
+        swapcase()   & 将字符串中的大小写互换（大写变小写，小写变大写） \\
+        upper()      & 将字符串所有字符转换为大写形式 \\
+        lower()      & 将字符串所有字符转换为小写形式 \\
+        \bottomrule
+      \end{tabular}
+    \end{table}
+
+  \subsection{左中右对齐}
+    \begin{table}[H]
+      \centering
+      \caption{字符串对齐与填充操作功能}
+      \begin{tabular}{@{}>{\ttfamily}l>{\raggedright\arraybackslash}p{9cm}@{}}
+        \toprule
+        \textrm{\textbf{操作}} & \textbf{功能描述} \\
+
+        center(width, fillchar=` ') & 将字符串居中，使用指定字符（fillchar的内容，默认是空格，下同）填充两侧至目标宽度 \\
+        ljust(width, fillchar=` ')  & 将字符串左对齐，使用指定字符填充右侧至目标宽度 \\
+        rjust(width, fillchar=` ')  & 将字符串右对齐，使用指定字符填充左侧至目标宽度 \\
+        zfill(width)                & 在字符串左侧填充零至目标宽度（负数符号保留） \\
+        \bottomrule
+      \end{tabular}
+    \end{table}
+
+  \subsection{查找}
+    \begin{table}[H]
+      \centering
+      \caption{python中的查找方法}
+      \begin{tabular}{lccc}
+        \toprule
+        \textbf{方法} & \textbf{功能} & \textbf{未找到行为} & \textbf{方向} \\ 
+
+        \texttt{count()} & 统计出现次数 & 返回 \texttt{0} & 全局 \\
+        \texttt{find()} & 从左到右查找某个元素，返回首次找到的索引值 & 返回 \texttt{-1} & 左→右 \\
+        \texttt{rfind()} & 从右到左查找某个元素，返回首次找到的索引值 & 返回 \texttt{-1} & 右→左 \\
+        \texttt{index()} & 从左到右查找某个元素，返回首次找到的索引值 & 抛出异常 & 左→右 \\
+        \texttt{rindex()} & 从右到左查找某个元素，返回首次找到的索引值 & 抛出异常 & 右→左 \\
+        \bottomrule
+      \end{tabular}
+    \end{table}\par
+    注意，可以在括号里加入start，end来规定范围（依旧是左闭右开），比如：\verb|count(element, start, end)|
+
+  \subsection{替换}
+    \begin{table}[H]
+      \centering
+      \caption{替换}
+      \begin{tabular}{l p{10cm}}
+        \toprule
+        方法名 & 作用描述 \\
+
+        expandtabs([tabsize=8]) & 将字符串中的制表符（\(\backslash t\)）扩展为一定数量的空格，默认制表符大小为8个空格，可通过参数指定。用于文本格式化和处理。 \\
+        replace(old, new, count=-1) & 在字符串中替换指定的子字符串，`old`为要被替换的子字符串，`new`为替换的新字符串，`count`指定替换次数，默认-1表示替换所有出现的`old`子字符串。用于修改和清理字符串内容。 \\
+        translate(table) & 根据给定的转换表（`table`）对字符串进行字符替换，转换表通常为字典等数据结构，指定字符间的映射关系。常用于批量字符替换或字符编码转换。 \\
+        \bottomrule
+      \end{tabular}
+    \end{table}
+    其中，对translate举例：
+    \begin{verbatim}
+      x = x.translate(str.maketrans(str1, str2, str3))
+    \end{verbatim}\par
+    这个操作的意义是：先删除x中形如str3的字符，再将其他字符根据str1与str2的对应法则进行更换
+
+  \subsection{判断（返回布尔类型的值）}
+    \begin{table}[H]
+      \centering
+      \caption{Python字符串判断方法汇总}
+      \label{tab:string_methods}
+      \begin{tabular}{l>{\raggedright\arraybackslash}p{10cm}}
+        \toprule
+        \textbf{方法} & \textbf{功能说明} \\
+
+        \multicolumn{2}{c}{\textit{前缀/后缀检查}} \\
+        \addlinespace
+        \texttt{startswith(prefix, start, end)} & 检查字符串是否以指定前缀开头，可选参数限定检测范围 \\
+        \texttt{endswith(suffix, start, end)}   & 检查字符串是否以指定后缀结尾，可选参数限定检测范围 \\
+        \addlinespace
+        \multicolumn{2}{c}{\textit{字符类型判断}} \\
+        \addlinespace
+        \texttt{isupper()}       & 检测所有字符是否均为大写字母 \\
+        \texttt{islower()}       & 检测所有字符是否均为小写字母 \\
+        \texttt{istitle()}       & 检测是否符合标题格式（每个单词首字母大写） \\
+        \texttt{isalpha()}       & 检测是否仅包含字母字符 \\
+        \texttt{isascii()}       & 检测是否均为ASCII字符 \\
+        \texttt{isspace()}       & 检测是否均为空白字符（空格/制表符/换行等） \\
+        \texttt{isprintable()}   & 检测是否均为可打印字符 \\
+        \texttt{isdecimal()}     & 检测是否均为十进制数字（0-9） \\
+        \texttt{isdigit()}       & 检测是否均为数字（包括Unicode数字） \\
+        \texttt{isnumeric()}     & 检测是否均为数值字符（含分数/罗马数字/中文数字等） \\
+        \texttt{isalnum()}       & 检测是否均为字母或数字组合 \\
+        \texttt{isidentifier()}  & 检测是否符合变量命名规则（即将此作为变量名是否合法） \\
+        \bottomrule
+      \end{tabular}
+    \end{table}\par
+    注意：\par
+    1.前两个方法可以在括号内输入元组，这样的话只要有一个成立，布尔类型就为真\par
+    2.需要留意\texttt{isalpha()}方法中，空格不是字母字符，因此有空格会返回False的值\par
+    3.\texttt{isspace()}方法中，只要能打印且打印出来是空的，均为空白字符，如：制表符，换行符等\par
+    4.\texttt{isprintable()}方法中，不可打印字符是指在显示或打印时不会产生可见输出（如文本或符号）的字符，如：换行符、制表符等，而字母、数字、标点符号、空格被认为可打印\par
+    5.\texttt{isdigit()}方法当且仅当字符串非空且所有字符都是数字时返回True，其他情况一律返回False，比如：`$2^{2}$'会返回True\par
+    6.\texttt{isnumeric()}方法只要是数字就行（英文one, two, three等不算数字）
+
+  \subsection{截取}
+    \begin{table}[H]
+      \caption{Python字符串处理函数}
+      \centering
+      \begin{tabular}{ll}
+        \toprule
+        \textbf{函数} & \textbf{功能} \\
+
+        \texttt{strip(str)} & 移除字符串\textbf{两端}空白/指定字符 \\
+        \texttt{lstrip(str)} & 移除字符串\textbf{左端}空白/指定字符 \\
+        \texttt{rstrip(str)} & 移除字符串\textbf{右端}空白/指定字符 \\
+        \texttt{removeprefix(prefix)} & 移除字符串\textbf{开头}的指定前缀 \\
+        \texttt{removesuffix(suffix)} & 移除字符串\textbf{结尾}的指定后缀 \\
+        \bottomrule
+      \end{tabular}
+    \end{table}\par
+    需要注意的是，前三个方法是从某个方向开始对字符串的每个元素一一比对是否有str中的字符，若有，就删，然后进入下一个字符，直到没有就停止；而后两个是直接比对字符串前后位置是否与指定前后缀相同，若相同，则执行删除操作，若不符，则不进行操作
+
+  \subsection{拆分}
+    \begin{table}[H]
+      \centering
+      \caption{Python字符串分割方法核心特性对比}
+      \begin{tabular}{>{\ttfamily}lccc>{\raggedright\arraybackslash}p{5cm}}
+        \toprule
+        方法 & 分割次数 & 方向 & 可选参数 & 注意事项 \\
+
+        partition(sep) & 1次 & → & 无 & 
+        \begin{itemize}
+          \setlength\itemsep{-0.5em}
+          \item 未找到分隔符时返回(原字符串, '', '')
+          \item 保留分隔符在结果中
+          \item 输出三元元组
+        \end{itemize} \\
+        \addlinespace
+        \hline
+        rpartition(sep) & 1次 & ← & 无 &  \\
+        \addlinespace
+        \hline
+        split(sep, maxsplit) & 多次 & → & 
+        \begin{tabular}{@{}c@{}} 
+          sep=None \\ 
+          maxsplit=-1 
+        \end{tabular} & 
+        \begin{itemize}
+          \setlength\itemsep{-0.5em}
+          \item sep=None时按空白（即空格键）分割（智能去除首尾空白）
+          \item maxsplit控制最大分割次数
+          \item 不保留分隔符在结果中
+          \item 输出表格
+        \end{itemize} \\
+        \bottomrule
+      \end{tabular}
+    \end{table}\par
+    还有\texttt{splitlines()}的方法，将文字以行划分，输出表格，可选参数为keepend = True/ False，决定是否保留换行符（默认为False）
+
+  \subsection{拼接}
+    我们用\texttt{join()}方法将字符串拼接，操作如下：
+    \begin{verbatim}
+      str_result = str.join(iterable)
+    \end{verbatim}\par
+    输出结果是将iterable里的元素\footnote{注意，这里iterable里面的元素必须是字符串，如果有其他类型的变量（如：int, float等）必须转化为字符串类型，可选方法有二：一是用列表推导式或者list()函数将iterable转化成列表，二是用\texttt{map(str, iterable)}直接变成str类型}依次排列，并在每两个中间插入字符串str
+
+  \subsection{格式化字符串}
+    \subsubsection{初等}
+      使用\texttt{format()}方法可以将字符串中花括号内空缺内容填充\footnote{注意，这里面花括号\texttt{{}}仅能选择一个number参数（用以指示使用tuple里的哪个元素）或者一个关键字参数（比如name，然后在tuple里写上name = x，用来专门指代），且不能留有任何空格；另外，若两种参数同时出现，那么位置参数必须在关键字参数之前，否则就会出错}，形式如下：
+      \begin{verbatim}
+        str（中间含{}）.format(tuple)
+      \end{verbatim}\par
+      这里必须满足\{\}数不得多于tuple的元素数，否则会报错；另外，要想输出\{str1\}可以用关键字参数+`\{str1\}'或者直接在str中使用\{\{str1\}\}
+    \subsubsection{进阶}
+      \texttt{format()}方法有很多可选参数，可以表示成如下的``式子''：
+      \begin{verbatim}
+        formatted_string = `{:{fill}{align}{sign}(#)(0){width}{grouping_option}.{precision}{type}}'.format(str, fill = ..., align = ..., )
+      \end{verbatim}\par
+      其中，可选字符的效果如下：
+      \begin{table}[H]
+        \centering
+        \caption{format 方法可选参数详解}
+        \begin{tabular}{>{\ttfamily}l >{\raggedright\arraybackslash}p{8cm}}
+          \toprule
+          \textbf{参数} & \textbf{描述} \\
+          
+          fill     & 指定填充字符（默认空格），如 \texttt{:a<5} → "hello" → "helloa" \\
+          align    & 对齐方式：\texttt{<}（左）、\texttt{>}（右）、\texttt{\^}（中） \\
+          sign     & 符号显示：\texttt{+}（总显示）、\texttt{-}（仅负）、空格（正数留空） \\
+          \#       & 添加进制前缀（0x/0o/0b），如 \texttt{\{:x\}} → 0xff \\
+          0        & 用0替代空格填充，如 \texttt{:05d} → 42 → "00042" \\
+          width    & 最小输出宽度，如 \texttt{:10} → "hello" → "     hello" \\
+          grouping\_option & 数字分组（如千位分隔，可选，和\_），\texttt{:,.2f} → 1234.56 → "1,234.56" \\
+          precision & 浮点数精度，如 \texttt{:.3f} → 3.14159 → "3.142" \\
+          type     & 数据类型：\texttt{s}（字符串）、\texttt{d}（整）、\texttt{f}（浮点）、\texttt{b/o/x}（进制） \\
+          \bottomrule
+        \end{tabular}
+      \end{table}
+      注意：\par
+      1.fill的内容必须为单位长度的字符串或0123456789中的一个数字\par
+      2.为align, sign赋值的内容必须是字符串\par
+      当然，也可以使用f-string的方法来简化代码：
+      \begin{verbatim}
+        formatted_string = f.`{str:{fill}{align}{sign}(#)(0){width}{grouping_option}{precision}{type}.{precision}{type}}'
+      \end{verbatim}\par
+      注意这也要有一个\{\}
+
+\section{序列}
+  \subsection{运算符}
+    \subsubsection{is运算符}
+      is运算符用以指向两个变量是否指向同一个内存位置\footnote{想调用内存位置可以用函数id（target）}（is not与之相反）\par
+      同一个字符串只在一个内存中储存，一样的一张列表会储存在不同的内存位置\par
+      而对于直接将某个列表乘以n的情况，实际上是复制其内存位置；而用列表推导式则不会出现这个问题
+    \subsubsection{in运算符}
+      判断某个元素是否包含于另一个序列
+    \subsubsection{del运算符}
+      del运算符可以用来执行删除操作，可以直接删除变量，如：\verb|del x|就直接删除了变量x，也可以用于删除列表中的元素，写法和切片类似（效果就是把切片赋值为空）
+
+  \subsection{函数}  
+    \subsubsection{min(),max()}
+      字如其名，可以直接输入参数，或者比较的元素大小，比如：\texttt{min(iterable)}注意字符串是比较其编码值\par
+      当然，有时无法返回结果，我们可以写\texttt{min(iterable, default = str)}，这样，无法输出对象时，就会输出default里面的值
+    \subsubsection{sum(iterable, start = number)}
+      start意为从number开始加
+    \subsubsection{sorted(iterable, key = function, reverse = Ture/False)}
+      注意，list.sort()会直接改变list，而sorted(list)会形成一个新的列表；sort()只能处理list，sorted()可以处理一切，并传出list
+    \subsubsection{reversed(iterable)}
+      注意这个会传出一个迭代器，要想查看需将这个转化成list, tuple, string等可视化对象
+    \subsubsection{all(),any()}
+      用来判断里面的元素是否全为真/是否存在真
+    \subsubsection{enumerate()}
+      操作：
+      \begin{verbatim}
+        enumerate(iterable, start = number)
+      \end{verbatim}\par
+      结果（迭代器\footnote{迭代器只能使用一次，用过即消失，想让可迭代对象变成迭代器，可以使用iter(iterable)函数，将其转化为迭代器}，需要转换成list, tuple, string的变量来查看）：
+      \begin{verbatim}
+        (number, element_1), (number + 1, element_2), ...（以此类推，这些都是二元元组）
+      \end{verbatim}
+    \subsubsection{zip()}
+      zip()函数将几个可迭代对象的第i个元素打包成第i个元组传出（迭代器，需要转换成list, tuple, string的变量来查看），比如：
+      \begin{verbatim}
+        x = [1, 2, 3, 4 ,5]
+        y = [1, 1, 4, 5, 1]
+        z = [3, 7, 8, 1, 0]
+
+        zipped = list(zip(x, y, z))
+      \end{verbatim}\par
+      会输出：
+      \begin{verbatim}
+        [(1, 1, 3), (2, 1, 7), (3, 4, 8), (4, 5, 1), (5, 1, 0)]
+      \end{verbatim}\par
+      注意，如果几个iterable的元素数目不同，则在最短序列时停止并输出结果，要是想用那些被忽略的值，可以使用itertools模块的\texttt{zip\_longest()}函数，操作如下：
+      \begin{verbatim}
+        import itertools
+
+        itertools.zip_longest(x, y, z, ..., fillvalue = number/str)
+      \end{verbatim}\par
+      会将空缺处以fillvalue填充，默认值是bool类型的None
+    \subsubsection{map(function, iterable)}
+      对所有iterable的元素依次进行function操作，然后形成一个可迭代对象（迭代器，需要转换成list, tuple, string的变量来查看）
+    \subsubsection{filter(function, iterable)}
+      与map()类似，但只返回结果为真的变量，其他删了不要
+    \subsubsection{next(iterator, str)}
+      将迭代器中的元素一一拿出来，注意，每次只返回一个变量，下次返回下一个，不输入str时，没有变量时会出现异常,若输入可控变量str，则会返回str
+
+  \subsection{将可迭代对象转化为某几种序列的函数}
+    可以使用\texttt{list(), tuple(), str()}函数将可迭代对象分别转化为列表，元组和字符串\par
+    注意：前两个互换可以理解为改变括号，前两个变成str是直接在两边加引号，而str变成前两个是将每个字符取出来作为list或者tuple里的元素
+
+\section{字典}
+  \subsection{概述}
+    字典是一种键值对存储结构，形如：
+    \begin{verbatim}
+      dictionary = {key1: value1, key2: value2, ...}
+    \end{verbatim}\par
+    需要注意，key的值互不相同；可以通过key的值获得相应的value：
+    \begin{verbatim}
+      dictionary[keyN] = valueN
+    \end{verbatim}\par
+    这个操作同样可用于修改key所对应的value值，若keyN不存在，则会将该键值对写入
+
+  \subsection{字典的构建}
+      \subsubsection{直接构建}
+        \begin{verbatim}
+          dictionary = {key1: value1, key2: value2, ...}
+        \end{verbatim}\par
+        这里value的数据类型没有限制，而key的类型是不可变类型（字符串、数字、元组等）
+      \subsubsection{利用\texttt{dict()}函数来构建}
+        第一种方法和上面一样；\par
+        第二种（有点像赋值）是：
+        \begin{verbatim}
+          dictionary = dict(key1 = value1, key2 = value2, ...)
+        \end{verbatim}\par
+        特别注意key的内容必须为能在加引号后变为字符串的一串字符且不能为数字（函数知识）；第三种（类似于传入元组）是：
+        \begin{verbatim}
+          dictionary = dict((key1, value1), (key2, value2), ...)
+        \end{verbatim}\par
+        然后是先用\texttt{zip()}函数构建成打包的元组再传入：
+        \begin{verbatim}
+          dictionary = dict(zip(iterable1, iterable2))
+        \end{verbatim}\par
+
+  \subsection{操作}
+    \subsubsection{del(), clear(), len(), in, list(), iter()}
+      与之前相同；注意，\texttt{list(), iter()}只会对key进行操作
+    \subsubsection{几个方法}
+      \begin{table}[H]
+        \centering
+        \caption{Python 字典核心方法}
+        \begin{tabular}{lp{12cm}}
+          \toprule
+          \textbf{方法} & \textbf{功能} \\
+          
+          \texttt{fromkeys(keys, value)} & 创建新字典，所有key的值对应为value\\
+          \texttt{pop(key, default)} & 删除指定键，若没有，返回default\\
+          \texttt{popitem()} & 删除最后插入的键值对\\
+          \texttt{update(dictionary)} & 批量更新字典\\
+          \texttt{get(key, default)} & 查找key对应的value值，没有就传出default\\
+          \texttt{setdefault(key, default)} & 若字典中有key，不响应；若无key，形成(key, default)的键值对\\
+          \texttt{keys()} & 返回字典所有键的动态视图对象，实时反映字典变化 \\
+          \texttt{values()} & 返回字典所有值的动态视图对象，实时反映字典变化 \\
+          \texttt{items()} & 返回字典所有键值对（元组形式）的动态视图对象，实时反映字典变化 \\
+          \bottomrule
+        \end{tabular}
+      \end{table}
+  
+  \subsection{字典的嵌套}
+    将value赋值成一个字典即可，查看操作与列表相同
+
+  \subsection{字典推导式}
+    \begin{verbatim}
+      dictionary = {key: value for element in iterable if condition}
+    \end{verbatim}\par
+    或者：
+    \begin{verbatim}
+      dictionary_ = {key_: value_ for key, value in dictionary.items() if condition}
+    \end{verbatim}
+    
+\section{集合} 
+  \subsection{集合的构建}
+    \begin{verbatim}
+      set = {element1, element2, ...}
+    \end{verbatim}\par
+    或者用\texttt{set()}函数：
+    \begin{verbatim}
+      set = set(iterable)
+    \end{verbatim}\par
+    这里会构建一个iterable所有元素的集合（会自动去除重复的元素）。注意，集合有无序性，因此不能用下标索引。\par
+    这里的集合是可变对象，要想构建一个不可变集合，可以使用frozenset()方法，用法与set()相同。\par
+    注意，集合也有推导式
+
+  \subsection{判断}
+    \begin{table}[H]
+      \centering
+      \caption{Python集合核心方法}
+      \begin{tabular}{lp{8cm}}
+        \toprule
+        \textbf{方法} & \textbf{核心功能描述} \\
+        \midrule
+        \texttt{isdisjoint(other)} & 检查两集合是否无交集（无共同元素） \\
+        \texttt{issubset(other)} & 检查当前集合是否为另一集合的子集 \\
+        \texttt{issuperset(other)} & 检查当前集合是否为另一集合的超集 \\
+        \texttt{union(*others)} & 返回当前集合与其他集合的并集 \\
+        \texttt{intersection(*others)} & 返回当前集合与其他集合的交集 \\
+        \texttt{difference(*others)} & 返回当前集合与其他集合的差集 \\
+        \texttt{symmetric\_difference(other)} & 返回当前集合与其他集合的对称差集 \\
+        \bottomrule
+      \end{tabular}
+    \end{table}
+  其它快捷方法：
+    \begin{table}[H]
+      \centering
+      \caption{快捷方案}
+      \begin{tabular}{lp{4cm}}
+        \toprule
+        \textbf{方法} & \textbf{核心功能描述} \\
+        \midrule
+        <, >, = & 检查两集合包含关系 \\
+        setA | setB & 取并集 \\
+        setA \& setB & 取交集 \\
+        setA - setB & 取差集 \\
+        setA \^ setB & 取对称差集 \\
+        \bottomrule
+      \end{tabular}
+    \end{table}
+
+  \subsection{其他操作}
+    \subsubsection{update()操作}
+      有intersection\_update(), difference\_update(), symmetric\_difference\_update()方法，相当于将原来的集合赋值给判断后输出的集合
+    \subsubsection{add(element), remove(element), discard(element), pop()}
+      set中没有element时，remove()会报错，而discard()不会；pop()会随机删一个元素
+    
+\section{函数}
+  \subsection{写法}
+    \begin{verbatim}
+      def function(parameter1, parameter2, ...):
+        content
+    \end{verbatim}\par
+    调用时就写：
+    \begin{verbatim}
+      function(parameter1, parameter2, ...)
+    \end{verbatim}\par
+    注意，以上parameterN可以写作parameterN = ...，这也叫做关键字参数。写函数时，关键字参数必须要出现在位置参数后面（可以用*来隔断）；当然，也可以通过这个给函数提供默认值
+
+  \subsection{不确定元素个数的输入方式}
+    \begin{verbatim}
+      def function(*tuple_name, parameter1, parameter2, ...):
+        content
+    \end{verbatim}\par
+    注意，这里tuple\_name的意思是传入的参数以元组的形式储存，输入时仍正常输入即可；后面的参数必须用关键字参数
+
+  \subsection{函数中字典的构建}
+    \begin{verbatim}
+      def function(**keywords):
+        content
+    \end{verbatim}\par
+    注意，这里要想调用，必须写作：
+    \begin{verbatim}
+      function(key1 = value1, key2 = value2, ...)
+    \end{verbatim}\par
+    这里key参数若为字符串，不能加引号
+
+  \subsection{return}
+    作用：\par
+    1.返回结果：将函数内部计算或处理的结果传递给外部调用者\par
+    2.终止函数执行：一旦执行return，函数会立即结束运行，后续代码不再执行；若无return，代码自动返回None
+
+  \subsection{作用域}
+    在函数内部定义的变量仅能在该函数内部作用，不能在函数外部出现；而在函数外部出现的变量没有限制\par
+    需要注意的是，如果一个变量同时在函数内外出现，则内外互不影响（若内部未进行赋值等操作，内部就调用外部的值；若进行操作，就使用内部操作的结果，函数运行完毕后，变量的值变回原来的值）\par
+    但是如果想在函数里面定义或者改变一个全局变量，可以使用global语句：
+    \begin{verbatim}
+      def function():
+        global variation
+        content
+    \end{verbatim}\par
+    但不提倡这样做
+
+  \subsection{嵌套函数}
+  \begin{verbatim}
+    def functionA():
+      content
+      def functionB():
+        content
+      content
+  \end{verbatim}\par
+  注意，不能在外部直接调用functionB，要想使用functionB必须将调用语句写在functionA里面，嵌套函数中，变量升一级用nonlocal语句
+
+  \subsection{LEGB法则}
+    作用‘‘效果’’：local > enclose > global > build-in，意思是：当前后可能冲突时，会优先选择``更大的''来进行作用
+
+  \subsection{闭包}
+    通过闭包操作，可以将一个变量单独的储存在某个包内，避免外部参数对其的影响，一般写法为：
+    \begin{verbatim}
+      def functionA(parameters):
+        content（包含定义局域参数parameter_x的语句）
+
+        def functionB(parameters):
+          content（包含：nonlocal parameter_x语句）
+          return ...
+
+        content
+        return functionB
+
+      fun = functionA(parameters)
+
+      fun(parameters)
+    \end{verbatim}\par
+    这里，我们每次调用fun时，相当于是在使用functionB进行操作，而内置于functionB（引用functionA的parameter\_x）的参数没有被删除，可以经过上一个值来进行重复使用；如果将functionA多次赋值给不同的参数，里面的parameter\_x互不影响
+
+\section{*的用法}
+  \subsection{解包}
+    对list, tuple使用一个*号，对字典使用2个*号并且只会将key参数解包
+  
+  \subsection{表示不确定元素个数的输入方式}
+    见函数章节
+
+
+
+
+\end{document}
