@@ -1,15 +1,15 @@
-This is XeTeX, Version 3.141592653-2.6-0.999997 (MiKTeX 25.4) (preloaded format=xelatex 2025.7.18)  21 SEP 2025 18:22
+This is XeTeX, Version 3.141592653-2.6-0.999997 (MiKTeX 25.12) (preloaded format=xelatex 2026.1.15)  15 JAN 2026 15:04
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**d:/Python_Learning_Material/Warning_For_Python.tex
-(d:/Python_Learning_Material/Warning_For_Python.tex
-LaTeX2e <2025-06-01> patch level 1
-L3 programming layer <2025-07-11>
-(D:\ProgramFiles_D\MikTex_Files\tex/latex/base\article.cls
+**d:/Learning/Python_Learning_Material/Warning/Warning_For_Python.tex
+(d:/Learning/Python_Learning_Material/Warning/Warning_For_Python.tex
+LaTeX2e <2025-11-01>
+L3 programming layer <2025-12-24>
+(D:\ProgramFiles_D\tex\tex/latex/base\article.cls
 Document Class: article 2025/01/22 v1.4n Standard LaTeX document class
-(D:\ProgramFiles_D\MikTex_Files\tex/latex/base\size10.clo
+(D:\ProgramFiles_D\tex\tex/latex/base\size10.clo
 File: size10.clo 2025/01/22 v1.4n Standard LaTeX file (size option)
 )
 \c@part=\count271
@@ -24,28 +24,28 @@ File: size10.clo 2025/01/22 v1.4n Standard LaTeX file (size option)
 \belowcaptionskip=\skip50
 \bibindent=\dimen148
 )
-(D:\ProgramFiles_D\MikTex_Files\tex/latex/ctex\ctex.sty
-(D:\ProgramFiles_D\MikTex_Files\tex/latex/l3kernel\expl3.sty
-Package: expl3 2025-07-11 L3 programming layer (loader) 
+(D:\ProgramFiles_D\tex\tex/latex/ctex\ctex.sty
+(D:\ProgramFiles_D\tex\tex/latex/l3kernel\expl3.sty
+Package: expl3 2025-12-24 L3 programming layer (loader) 
 
-(D:\ProgramFiles_D\MikTex_Files\tex/latex/l3backend\l3backend-xetex.def
-File: l3backend-xetex.def 2025-06-09 L3 backend support: XeTeX
+(D:\ProgramFiles_D\tex\tex/latex/l3backend\l3backend-xetex.def
+File: l3backend-xetex.def 2025-10-09 L3 backend support: XeTeX
 \g__graphics_track_int=\count279
 \g__pdfannot_backend_int=\count280
 \g__pdfannot_backend_link_int=\count281
 ))
 Package: ctex 2022/07/14 v2.5.10 Chinese adapter in LaTeX (CTEX)
 
-(D:\ProgramFiles_D\MikTex_Files\tex/latex/ctex\ctexhook.sty
+(D:\ProgramFiles_D\tex\tex/latex/ctex\ctexhook.sty
 Package: ctexhook 2022/07/14 v2.5.10 Document and package hooks (CTEX)
 )
-(D:\ProgramFiles_D\MikTex_Files\tex/latex/ctex\ctexpatch.sty
+(D:\ProgramFiles_D\tex\tex/latex/ctex\ctexpatch.sty
 Package: ctexpatch 2022/07/14 v2.5.10 Patching commands (CTEX)
 )
-(D:\ProgramFiles_D\MikTex_Files\tex/latex/base\fix-cm.sty
+(D:\ProgramFiles_D\tex\tex/latex/base\fix-cm.sty
 Package: fix-cm 2020/11/24 v1.1t fixes to LaTeX
 
-(D:\ProgramFiles_D\MikTex_Files\tex/latex/base\ts1enc.def
+(D:\ProgramFiles_D\tex\tex/latex/base\ts1enc.def
 File: ts1enc.def 2001/06/05 v3.0e (jk/car/fm) Standard LaTeX file
 LaTeX Font Info:    Redeclaring font encoding TS1 on input line 47.
 LaTeX Encoding Info:    Redeclaring text command \capitalcedilla (encoding TS1)
@@ -309,17 +309,17 @@ t line 194.
 \g__ctex_section_depth_int=\count283
 \g__ctex_font_size_int=\count284
 
-(D:\ProgramFiles_D\MikTex_Files\tex/latex/ctex/config\ctexopts.cfg
+(D:\ProgramFiles_D\tex\tex/latex/ctex/config\ctexopts.cfg
 File: ctexopts.cfg 2022/07/14 v2.5.10 Option configuration file (CTEX)
 )
-(D:\ProgramFiles_D\MikTex_Files\tex/latex/ctex/engine\ctex-engine-xetex.def
+(D:\ProgramFiles_D\tex\tex/latex/ctex/engine\ctex-engine-xetex.def
 File: ctex-engine-xetex.def 2022/07/14 v2.5.10 XeLaTeX adapter (CTEX)
 
-(D:\ProgramFiles_D\MikTex_Files\tex/xelatex/xecjk\xeCJK.sty
+(D:\ProgramFiles_D\tex\tex/xelatex/xecjk\xeCJK.sty
 Package: xeCJK 2022/08/05 v3.9.1 Typesetting CJK scripts with XeLaTeX
 
-(D:\ProgramFiles_D\MikTex_Files\tex/latex/l3packages/xtemplate\xtemplate.sty
-Package: xtemplate 2024-08-16 L3 Experimental prototype document functions
+(D:\ProgramFiles_D\tex\tex/latex/l3packages/xtemplate\xtemplate.sty
+Package: xtemplate 2025-10-09 L3 Experimental prototype document functions
 )
 \l__xeCJK_tmp_int=\count285
 \l__xeCJK_tmp_box=\box54
@@ -382,14 +382,14 @@ LaTeX template Info: Declaring template type 'xeCJK/punctuation' taking 0
 \l__xeCJK_verb_case_int=\count296
 \l__xeCJK_verb_exspace_skip=\skip57
 
-(D:\ProgramFiles_D\MikTex_Files\tex/latex/fontspec\fontspec.sty
-(D:\ProgramFiles_D\MikTex_Files\tex/latex/l3packages/xparse\xparse.sty
-Package: xparse 2024-08-16 L3 Experimental document command parser
+(D:\ProgramFiles_D\tex\tex/latex/fontspec\fontspec.sty
+(D:\ProgramFiles_D\tex\tex/latex/l3packages/xparse\xparse.sty
+Package: xparse 2025-10-09 L3 Experimental document command parser
 )
-Package: fontspec 2024/05/11 v2.9e Font selection for XeLaTeX and LuaLaTeX
+Package: fontspec 2025/09/29 v2.9g Font selection for XeLaTeX and LuaLaTeX
 
-(D:\ProgramFiles_D\MikTex_Files\tex/latex/fontspec\fontspec-xetex.sty
-Package: fontspec-xetex 2024/05/11 v2.9e Font selection for XeLaTeX and LuaLaTe
+(D:\ProgramFiles_D\tex\tex/latex/fontspec\fontspec-xetex.sty
+Package: fontspec-xetex 2025/09/29 v2.9g Font selection for XeLaTeX and LuaLaTe
 X
 \l__fontspec_script_int=\count297
 \l__fontspec_language_int=\count298
@@ -406,11 +406,11 @@ X
 \l__fontspec_tmpb_dim=\dimen178
 \l__fontspec_tmpc_dim=\dimen179
 
-(D:\ProgramFiles_D\MikTex_Files\tex/latex/base\fontenc.sty
-Package: fontenc 2024/12/21 v2.1c Standard LaTeX package
+(D:\ProgramFiles_D\tex\tex/latex/base\fontenc.sty
+Package: fontenc 2025/07/18 v2.1d Standard LaTeX package
 )
-(D:\ProgramFiles_D\MikTex_Files\tex/latex/fontspec\fontspec.cfg)))
-(D:\ProgramFiles_D\MikTex_Files\tex/xelatex/xecjk\xeCJK.cfg
+(D:\ProgramFiles_D\tex\tex/latex/fontspec\fontspec.cfg)))
+(D:\ProgramFiles_D\tex\tex/xelatex/xecjk\xeCJK.cfg
 File: xeCJK.cfg 2022/08/05 v3.9.1 Configuration file for xeCJK package
 ))
 \ccwd=\dimen180
@@ -418,28 +418,28 @@ File: xeCJK.cfg 2022/08/05 v3.9.1 Configuration file for xeCJK package
 )
 \l__ctex_ziju_dim=\dimen181
 
-(D:\ProgramFiles_D\MikTex_Files\tex/latex/zhnumber\zhnumber.sty
+(D:\ProgramFiles_D\tex\tex/latex/zhnumber\zhnumber.sty
 Package: zhnumber 2022/07/14 v3.0 Typesetting numbers with Chinese glyphs
 \l__zhnum_scale_int=\count308
 \l__zhnum_tmp_int=\count309
 
-(D:\ProgramFiles_D\MikTex_Files\tex/latex/zhnumber\zhnumber-utf8.cfg
+(D:\ProgramFiles_D\tex\tex/latex/zhnumber\zhnumber-utf8.cfg
 File: zhnumber-utf8.cfg 2022/07/14 v3.0 Chinese numerals with UTF8 encoding
 ))
-(D:\ProgramFiles_D\MikTex_Files\tex/latex/ctex/scheme\ctex-scheme-chinese.def
+(D:\ProgramFiles_D\tex\tex/latex/ctex/scheme\ctex-scheme-chinese.def
 File: ctex-scheme-chinese.def 2022/07/14 v2.5.10 Chinese scheme for generic (CT
 EX)
 
-(D:\ProgramFiles_D\MikTex_Files\tex/latex/ctex/config\ctex-name-utf8.cfg
+(D:\ProgramFiles_D\tex\tex/latex/ctex/config\ctex-name-utf8.cfg
 File: ctex-name-utf8.cfg 2022/07/14 v2.5.10 Caption with encoding UTF-8 (CTEX)
 ))
-(D:\ProgramFiles_D\MikTex_Files\tex/latex/tools\indentfirst.sty
+(D:\ProgramFiles_D\tex\tex/latex/tools\indentfirst.sty
 Package: indentfirst 2023/07/02 v1.03 Indent first paragraph (DPC)
 )
-(D:\ProgramFiles_D\MikTex_Files\tex/latex/ctex\ctex-c5size.clo
+(D:\ProgramFiles_D\tex\tex/latex/ctex\ctex-c5size.clo
 File: ctex-c5size.clo 2022/07/14 v2.5.10 c5size option (CTEX)
 )
-(D:\ProgramFiles_D\MikTex_Files\tex/latex/ctex/fontset\ctex-fontset-windows.def
+(D:\ProgramFiles_D\tex\tex/latex/ctex/fontset\ctex-fontset-windows.def
 File: ctex-fontset-windows.def 2022/07/14 v2.5.10 Windows fonts definition (CTE
 X)
 
@@ -473,14 +473,16 @@ Package fontspec Info:
 (fontspec)             - 'italic' (m/it) with NFSS spec.:
 (fontspec)             <->"KaiTi/OT:script=hani;language=dflt;"
 
-)) (D:\ProgramFiles_D\MikTex_Files\tex/latex/ctex/config\ctex.cfg
+))
+(D:\ProgramFiles_D\tex\tex/latex/ctex/config\ctex.cfg
 File: ctex.cfg 2022/07/14 v2.5.10 Configuration file (CTEX)
 )
-(D:\ProgramFiles_D\MikTex_Files\tex/latex/tabularray\tabularray.sty
-Package: tabularray 2025-03-11 v2025A Typeset tabulars and arrays with LaTeX3
-\l__tblr_a_int=\count310
-\l__tblr_c_int=\count311
-\l__tblr_r_int=\count312
+(D:\ProgramFiles_D\tex\tex/latex/tabularray\tabularray.sty
+Package: tabularray 2025-11-27 v2025C Typeset tabulars and arrays with LaTeX3
+\g__tblr_nohyper_int=\count310
+\l__tblr_a_int=\count311
+\l__tblr_c_int=\count312
+\l__tblr_r_int=\count313
 \l__tblr_d_dim=\dimen182
 \l__tblr_h_dim=\dimen183
 \l__tblr_o_dim=\dimen184
@@ -495,36 +497,36 @@ Package: tabularray 2025-03-11 v2025A Typeset tabulars and arrays with LaTeX3
 \l__tblr_b_box=\box57
 \l__tblr_c_box=\box58
 \l__tblr_d_box=\box59
-\c@tblrcount=\count313
-\c@rownum=\count314
-\c@colnum=\count315
-\c@rowcount=\count316
-\c@colcount=\count317
+\c@tblrcount=\count314
+\c@rownum=\count315
+\c@colnum=\count316
+\c@rowcount=\count317
+\c@colcount=\count318
 \abovesep=\dimen192
 \belowsep=\dimen193
 \leftsep=\dimen194
 \rightsep=\dimen195
-\gTblrLevelInt=\count318
-\g__tblr_data_row_key_count_int=\count319
-\g__tblr_data_column_key_count_int=\count320
-\g__tblr_data_cell_key_count_int=\count321
-\g__tblr_array_int=\count322
-\l__tblr_key_count_int=\count323
-\l__tblr_key_quotient_int=\count324
-\l__tblr_key_quotient_two_int=\count325
-\l__tblr_key_remainder_int=\count326
-\g__tblr_data_str_value_count_int=\count327
-\lTblrChildTotalInt=\count328
-\lTblrChildHtotalInt=\count329
-\lTblrChildVtotalInt=\count330
-\l__child_diff_h_int=\count331
-\l__child_diff_v_int=\count332
-\l__child_sign_h_int=\count333
-\l__child_sign_v_int=\count334
-\l__child_step_int=\count335
+\gTblrLevelInt=\count319
+\g__tblr_data_row_key_count_int=\count320
+\g__tblr_data_column_key_count_int=\count321
+\g__tblr_data_cell_key_count_int=\count322
+\g__tblr_array_int=\count323
+\l__tblr_key_count_int=\count324
+\l__tblr_key_quotient_int=\count325
+\l__tblr_key_quotient_two_int=\count326
+\l__tblr_key_remainder_int=\count327
+\g__tblr_data_str_value_count_int=\count328
+\lTblrChildTotalInt=\count329
+\lTblrChildHtotalInt=\count330
+\lTblrChildVtotalInt=\count331
+\l__child_diff_h_int=\count332
+\l__child_diff_v_int=\count333
+\l__child_sign_h_int=\count334
+\l__child_sign_v_int=\count335
+\l__child_step_int=\count336
 \lTblrDefaultHruleWidthDim=\dimen196
 \lTblrDefaultVruleWidthDim=\dimen197
-\l__tblr_split_balance_int=\count336
+\l__tblr_split_balance_int=\count337
 \l__tblr_strut_dp_dim=\dimen198
 \l__tblr_strut_ht_dim=\dimen199
 \g__tblr_cell_wd_dim=\dimen256
@@ -538,8 +540,8 @@ Package: tabularray 2025-03-11 v2025A Typeset tabulars and arrays with LaTeX3
 \l__tblr_hfuzz_dim=\dimen261
 \l__tblr_caption_box=\box63
 \l__tblr_caption_left_box=\box64
-\lTblrRowHeadInt=\count337
-\lTblrRowFootInt=\count338
+\lTblrRowHeadInt=\count338
+\lTblrRowFootInt=\count339
 \l__tblr_row_head_box=\box65
 \l__tblr_row_foot_box=\box66
 \l__tblr_row_head_foot_dim=\dimen262
@@ -551,133 +553,136 @@ Package: tabularray 2025-03-11 v2025A Typeset tabulars and arrays with LaTeX3
 \l__tblr_table_middlefoot_box=\box71
 \l__tblr_table_lastfoot_box=\box72
 \l__tblr_remain_height_dim=\dimen264
-\l__tblr_long_from_int=\count339
-\l__tblr_long_to_int=\count340
-\l__tblr_curr_i_int=\count341
-\l__tblr_prev_i_int=\count342
-\lTblrTablePageInt=\count343
+\l__tblr_next_rows_dim=\dimen265
+\l__tblr_page_overfill_dim=\dimen266
+\l__tblr_long_from_int=\count340
+\l__tblr_long_to_int=\count341
+\l__tblr_curr_i_int=\count342
+\l__tblr_prev_i_int=\count343
+\lTblrTablePageInt=\count344
 \l__tblr_table_head_box=\box73
 \l__tblr_table_foot_box=\box74
-\l__tblr_table_head_foot_dim=\dimen265
-\l__tblr_table_head_body_foot_dim=\dimen266
+\l__tblr_table_head_foot_dim=\dimen267
+\l__tblr_table_head_body_foot_dim=\dimen268
 \l__tblr_table_box=\box75
-\lTblrRowFirstInt=\count344
-\lTblrRowLastInt=\count345
+\lTblrRowFirstInt=\count345
+\lTblrRowLastInt=\count346
+\l__tblr_cover_box_a_dim=\dimen269
+\l__tblr_cover_box_b_dim=\dimen270
 \l__tblr_table_hlines_box=\box76
 \l__tblr_hline_box=\box77
 \l__tblr_row_box=\box78
-\l__tblr_col_o_wd_dim=\dimen267
-\l__tblr_col_b_wd_dim=\dimen268
-\l__tblr_hline_leftskip_dim=\dimen269
-\l__tblr_hline_rightskip_dim=\dimen270
-\l__tblr_row_ht_dim=\dimen271
-\l__tblr_row_dp_dim=\dimen272
-\l__tblr_row_abovesep_dim=\dimen273
-\l__tblr_row_belowsep_dim=\dimen274
+\l__tblr_col_o_wd_dim=\dimen271
+\l__tblr_col_b_wd_dim=\dimen272
+\l__tblr_hline_leftskip_dim=\dimen273
+\l__tblr_hline_rightskip_dim=\dimen274
+\l__tblr_row_ht_dim=\dimen275
+\l__tblr_row_dp_dim=\dimen276
+\l__tblr_row_abovesep_dim=\dimen277
+\l__tblr_row_belowsep_dim=\dimen278
 \l__tblr_row_vlines_box=\box79
 \l__tblr_vline_box=\box80
 \l__tblr_cell_box=\box81
-\l__tblr_row_upper_dim=\dimen275
-\l__tblr_row_lower_dim=\dimen276
-\l__tblr_row_vpace_dim=\dimen277
-\l__tblr_vline_aboveskip_dim=\dimen278
-\l__tblr_vline_belowskip_dim=\dimen279
-\lTblrCellRowSpanInt=\count346
-\lTblrCellColSpanInt=\count347
-\l__tblr_cell_wd_dim=\dimen280
-\l__tblr_cell_ht_dim=\dimen281
-\lTblrCellAboveBorderWidthDim=\dimen282
-\lTblrCellBelowBorderWidthDim=\dimen283
-\lTblrCellLeftBorderWidthDim=\dimen284
-\lTblrCellRightBorderWidthDim=\dimen285
+\l__tblr_row_upper_dim=\dimen279
+\l__tblr_row_lower_dim=\dimen280
+\l__tblr_row_vpace_dim=\dimen281
+\l__tblr_vline_aboveskip_dim=\dimen282
+\l__tblr_vline_belowskip_dim=\dimen283
+\lTblrCellRowSpanInt=\count347
+\lTblrCellColSpanInt=\count348
+\l__tblr_cell_wd_dim=\dimen284
+\l__tblr_cell_ht_dim=\dimen285
+\lTblrCellAboveBorderWidthDim=\dimen286
+\lTblrCellBelowBorderWidthDim=\dimen287
+\lTblrCellLeftBorderWidthDim=\dimen288
+\lTblrCellRightBorderWidthDim=\dimen289
 \l__tblr_diag_box=\box82
-\l__tblr_cell_inner_wd_dim=\dimen286
-\l__tblr_cell_inner_dp_dim=\dimen287
-\l__tblr_cell_hanchor_dim=\dimen288
-\l__tblr_last_cell_table_ht_dim=\dimen289
-\l__tblr_last_cell_table_dp_dim=\dimen290
-\l__tblr_last_vline_wd_dim=\dimen291
+\l__tblr_cell_inner_wd_dim=\dimen290
+\l__tblr_cell_inner_dp_dim=\dimen291
+\l__tblr_cell_hanchor_dim=\dimen292
+\l__tblr_last_cell_table_ht_dim=\dimen293
+\l__tblr_last_cell_table_dp_dim=\dimen294
+\l__tblr_last_vline_wd_dim=\dimen295
 \l__tblr_tikz_node_box=\box83
 )
-(D:\ProgramFiles_D\MikTex_Files\tex/latex/fancyvrb\fancyvrb.sty
-Package: fancyvrb 2024/01/20 4.5c verbatim text (tvz,hv)
+(D:\ProgramFiles_D\tex\tex/latex/fancyvrb\fancyvrb.sty
+Package: fancyvrb 2025/07/28 4.6 verbatim text (tvz,hv)
 
-(D:\ProgramFiles_D\MikTex_Files\tex/latex/graphics\keyval.sty
+(D:\ProgramFiles_D\tex\tex/latex/graphics\keyval.sty
 Package: keyval 2022/05/29 v1.15 key=value parser (DPC)
 \KV@toks@=\toks17
 )
-\FV@CodeLineNo=\count348
+\FV@CodeLineNo=\count349
 \FV@InFile=\read2
 \FV@TabBox=\box84
-\c@FancyVerbLine=\count349
-\FV@StepNumber=\count350
+\c@FancyVerbLine=\count350
+\FV@StepNumber=\count351
 \FV@OutFile=\write3
 )
-(D:\ProgramFiles_D\MikTex_Files\tex/latex/bera\beramono.sty
+(D:\ProgramFiles_D\tex\tex/latex/bera\beramono.sty
 Package: beramono 2004/01/31 (WaS)
 )
-(D:\ProgramFiles_D\MikTex_Files\tex/latex/booktabs\booktabs.sty
+(D:\ProgramFiles_D\tex\tex/latex/booktabs\booktabs.sty
 Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
-\heavyrulewidth=\dimen292
-\lightrulewidth=\dimen293
-\cmidrulewidth=\dimen294
-\belowrulesep=\dimen295
-\belowbottomsep=\dimen296
-\aboverulesep=\dimen297
-\abovetopsep=\dimen298
-\cmidrulesep=\dimen299
-\cmidrulekern=\dimen300
-\defaultaddspace=\dimen301
-\@cmidla=\count351
-\@cmidlb=\count352
-\@aboverulesep=\dimen302
-\@belowrulesep=\dimen303
-\@thisruleclass=\count353
-\@lastruleclass=\count354
-\@thisrulewidth=\dimen304
+\heavyrulewidth=\dimen296
+\lightrulewidth=\dimen297
+\cmidrulewidth=\dimen298
+\belowrulesep=\dimen299
+\belowbottomsep=\dimen300
+\aboverulesep=\dimen301
+\abovetopsep=\dimen302
+\cmidrulesep=\dimen303
+\cmidrulekern=\dimen304
+\defaultaddspace=\dimen305
+\@cmidla=\count352
+\@cmidlb=\count353
+\@aboverulesep=\dimen306
+\@belowrulesep=\dimen307
+\@thisruleclass=\count354
+\@lastruleclass=\count355
+\@thisrulewidth=\dimen308
 )
-(D:\ProgramFiles_D\MikTex_Files\tex/latex/tools\array.sty
-Package: array 2025/06/08 v2.6j Tabular extension package (FMi)
-\col@sep=\dimen305
+(D:\ProgramFiles_D\tex\tex/latex/tools\array.sty
+Package: array 2025/09/25 v2.6n Tabular extension package (FMi)
+\col@sep=\dimen309
 \ar@mcellbox=\box85
-\extrarowheight=\dimen306
+\extrarowheight=\dimen310
 \NC@list=\toks18
 \extratabsurround=\skip59
 \backup@length=\skip60
 \ar@cellbox=\box86
 )
-(D:\ProgramFiles_D\MikTex_Files\tex/latex/geometry\geometry.sty
+(D:\ProgramFiles_D\tex\tex/latex/geometry\geometry.sty
 Package: geometry 2020/01/02 v5.9 Page Geometry
 
-(D:\ProgramFiles_D\MikTex_Files\tex/generic/iftex\ifvtex.sty
+(D:\ProgramFiles_D\tex\tex/generic/iftex\ifvtex.sty
 Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
 
-(D:\ProgramFiles_D\MikTex_Files\tex/generic/iftex\iftex.sty
+(D:\ProgramFiles_D\tex\tex/generic/iftex\iftex.sty
 Package: iftex 2024/12/12 v1.0g TeX engine tests
 ))
-\Gm@cnth=\count355
-\Gm@cntv=\count356
-\c@Gm@tempcnt=\count357
-\Gm@bindingoffset=\dimen307
-\Gm@wd@mp=\dimen308
-\Gm@odd@mp=\dimen309
-\Gm@even@mp=\dimen310
-\Gm@layoutwidth=\dimen311
-\Gm@layoutheight=\dimen312
-\Gm@layouthoffset=\dimen313
-\Gm@layoutvoffset=\dimen314
+\Gm@cnth=\count356
+\Gm@cntv=\count357
+\c@Gm@tempcnt=\count358
+\Gm@bindingoffset=\dimen311
+\Gm@wd@mp=\dimen312
+\Gm@odd@mp=\dimen313
+\Gm@even@mp=\dimen314
+\Gm@layoutwidth=\dimen315
+\Gm@layoutheight=\dimen316
+\Gm@layouthoffset=\dimen317
+\Gm@layoutvoffset=\dimen318
 \Gm@dimlist=\toks19
 
-(D:\ProgramFiles_D\MikTex_Files\tex/latex/geometry\geometry.cfg))
-(D:\ProgramFiles_D\MikTex_Files\tex/latex/float\float.sty
+(D:\ProgramFiles_D\tex\tex/latex/geometry\geometry.cfg))
+(D:\ProgramFiles_D\tex\tex/latex/float\float.sty
 Package: float 2001/11/08 v1.3d Float enhancements (AL)
-\c@float@type=\count358
+\c@float@type=\count359
 \float@exts=\toks20
 \float@box=\box87
 \@float@everytoks=\toks21
 \@floatcapt=\box88
-)
-(Warning_For_Python.aux)
+) (Warning_For_Python.aux)
 \openout1 = `Warning_For_Python.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 14.
@@ -831,38 +836,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 67--67
 \TU/lmr/m/n/10.53937 {key:value...},
  []
 
-
-
 [1
 
 ]
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <7.52812> on input line 76.
-
-
-[2]
-
-[3]
-
-[4]
-
-[5]
-
-[6]
-
-[7]
-
-[8]
-
-[9]
-
-[10]
-
-[11]
-
-[12]
-
-[13]
+ [2] [3] [4] [5] [6] [7] [8] [9] [10] [11] [12] [13]
 
 Package fontspec Info: 
 (fontspec)             Could not resolve font "FangSong/BI" (it probably
@@ -897,11 +876,7 @@ Package fontspec Info:
 (fontspec)             - 'normal' (m/n) with NFSS spec.:
 (fontspec)             <->"FangSong/OT:script=hani;language=dflt;"
 
-
-
-[14]
-
-[15]
+[14] [15]
 Overfull \hbox (32.29428pt too wide) in paragraph at lines 477--478
 []\TU/SimSun(0)/m/n/10.53937 注 意，|  可 以 在 括 号 里 加 入 \TU/fvm/m/n/10.53937 start\
 TU/SimSun(0)/m/n/10.53937 ，| \TU/fvm/m/n/10.53937 end \TU/SimSun(0)/m/n/10.5393
@@ -919,15 +894,7 @@ Overfull \hbox (10.25452pt too wide) in paragraph at lines 504--529
  [][] 
  []
 
-
-
-[16]
-
-[17]
-
-[18]
-
-[19]
+[16] [17] [18] [19]
 Overfull \hbox (170.67635pt too wide) in paragraph at lines 611--611
 []        \TU/fvm/m/n/10.53937 formatted_string = ‘{:{fill}{align}{sign}(#)(0){
 width}{grouping_option}.{precision}{type}}’.format(str, fill = ..., align = ...
@@ -942,59 +909,34 @@ LaTeX Font Warning: Font shape `TU/fvm/b/n' undefined
 LaTeX Font Warning: Font shape `TU/FangSong(0)/b/n' undefined
 (Font)              using `TU/FangSong(0)/m/n' instead on input line 618.
 
-
-
 [20]
 Overfull \hbox (125.04079pt too wide) in paragraph at lines 638--638
 []        \TU/fvm/m/n/10.53937 formatted_string = f.‘{str:{fill}{align}{sign}(#
 )(0){width}{grouping_option}{precision}{type}.{precision}{type}}’[] 
  []
 
-
-
-[21]
-
-[22]
-
-[23]
+[21] [22] [23]
 Overfull \hbox (41.48611pt too wide) in paragraph at lines 744--759
  [][] 
  []
 
-
-
-[24]
-
-[25]
-
-[26]
-
-[27]
-
-[28]
-
-[29]
-
-[30] (Warning_For_Python.aux)
+[24] [25] [26] [27] [28] [29] [30] (Warning_For_Python.aux)
  ***********
-LaTeX2e <2025-06-01> patch level 1
+LaTeX2e <2025-11-01>
 L3 programming layer <2022/07/14>
  ***********
 
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
  ) 
 Here is how much of TeX's memory you used:
- 9825 strings out of 403265
- 284718 string characters out of 5464128
- 681879 words of memory out of 5000000
- 38160 multiletter control sequences out of 15000+600000
- 636664 words of font info for 103 fonts, out of 8000000 for 9000
+ 9815 strings out of 402987
+ 284228 string characters out of 5453285
+ 688704 words of memory out of 5000000
+ 38428 multiletter control sequences out of 15000+600000
+ 634227 words of font info for 94 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 93i,14n,111p,385b,899s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 93i,14n,111p,402b,900s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
 Output written on Warning_For_Python.pdf (30 pages).
